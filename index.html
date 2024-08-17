@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISI Kings Gaming</title>
+    <link rel="icon" type="image/x-icon" href="logo 1.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            background-color: #34495e;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+            background-color: #34495e;
+            border-radius: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: calc(100% - 22px);
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e74c3c;
+            color: #ecf0f1;
+            cursor: pointer;
+        }
+
+        .tab {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #2c3e50;
+            border: 1px solid #34495e;
+            border-radius: 5px;
+        }
+
+        .tab.active {
+            background-color: #e74c3c;
+        }
+    </style>
+    <script>
+        function showForm(formId) {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('signupForm').style.display = 'none';
+            document.getElementById(formId).style.display = 'block';
+
+            document.getElementById('loginTab').classList.remove('active');
+            document.getElementById('signupTab').classList.remove('active');
+            document.getElementById(formId + 'Tab').classList.add('active');
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            // Here you would normally check the credentials with a server
+            // For this example, we'll assume the login is always successful
+            // alert('Login successful!');
+            // window.location.href = 'res isi.html'; // Redirect to the next page
+
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            fetch('php/login.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+            })
+                .then(response => response.text())
+                .then(data => {
+                    // document.getElementById('response').innerHTML = data;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+
+
+
+        const handleSignup = (event) => {
+
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+
+            const username = document.getElementById('signupUsername').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+
+            fetch('/php/signup.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `username=${encodeURIComponent(username)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
+            })
+                .then(response => response.text())
+                .then(data => {
+                    // document.getElementById('response').innerHTML = data;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</head>
+
+<body onload="showForm('loginForm')">
+    <header>
+        <h1>Welcome to ISI Kings Gaming</h1>
+        <nav>
+            <a href="res isi.html">MY Home</a>
+            <a href="res yt.html">MY Yt</a>
+            <a href="res my tik.html">My tiktok</a>
+            <a href="res fan.html">My fan and following</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div>
+            <span id="loginTab" class="tab active" onclick="showForm('loginForm')">Login</span>
+            <span id="signupTab" class="tab" onclick="showForm('signupForm')">Sign Up</span>
+        </div>
+        <div id="loginForm">
+            <h2>Login</h2>
+            <form onsubmit="handleLogin(event)">
+                <input id="loginUsername" type="text" name="username" placeholder="Username" required><br>
+                <input id="loginPassword" type="password" name="password" placeholder="Password" required><br>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        <div id="signupForm" style="display: none;">
+            <h2>Sign Up</h2>
+            <form onsubmit="handleSignup(event)">
+                <input id="signupUsername" type="text" name="username" placeholder="Username" required><br>
+                <input id="signupEmail" type="email" name="email" placeholder="Email" required><br>
+                <input id="signupPassword" name="password" placeholder="Password" required><br>
+                <input type="submit" value="Sign Up">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

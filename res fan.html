@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan Page</title>
+    <link rel="icon" type="image/x-icon" href="logo 1.png">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: red;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: rgb(25, 108, 133);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: grey;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            font-size: 20px;
+            margin: 5px 10px;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        nav a:hover {
+            background-color: darkgrey;
+        }
+
+        h2,
+        h3,
+        h4 {
+            color: white;
+            text-align: center;
+            background-color: black;
+            margin: 20px 0;
+            padding: 20px;
+        }
+
+        .img-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .img-container img {
+            border: 10px solid white;
+            border-radius: 20px;
+            height: auto;
+            max-width: 100%;
+            width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .img-container img:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            nav a {
+                font-size: 18px;
+            }
+
+            h2,
+            h3,
+            h4 {
+                font-size: 36px;
+                padding: 15px;
+            }
+
+            .img-container img {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 30px;
+                padding: 20px;
+            }
+
+            nav a {
+                font-size: 16px;
+                padding: 8px;
+            }
+
+            h2,
+            h3,
+            h4 {
+                font-size: 24px;
+                padding: 10px;
+            }
+
+            .img-container img {
+                max-width: 200px;
+            }
+        }
+
+        footer {
+            background-color: rgb(25, 108, 133);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>MY Friends, Followers, and My Following</h1>
+    </header>
+
+    <nav>
+        <a href="res isi.html">Home</a>
+        <a href="res yt.html">My YouTube</a>
+        <a href="res my tik.html">My TikTok</a>
+        <a href="res fan.html">My Fan Following</a>
+    </nav>
+
+    <h2>Following</h2>
+    <div class="img-container">
+        <img src="./images/image1.jpg" alt="Following 1">
+        <img src="./images/image2.jpg" alt="Following 2">
+        <img src="./images/image3.jpg" alt="Following 3">
+    </div>
+
+    <h3>Followers and Subscribers</h3>
+    <div class="img-container">
+        <img src="./images/image8.jpg" alt="Follower 1">
+        <img src="./images/image6.jpg" alt="Follower 2">
+        <img src="./images/image9 (2).jpeg" alt="Follower 3">
+    </div>
+
+    <h4>Friends</h4>
+    <div class="img-container">
+        <img src="./images/image4.jpg" alt="Friend 1">
+        <img src="./images/image5.jpg" alt="Friend 2">
+        <img src="./images/image7.jpg" alt="Friend 3">
+    </div>
+    <footer>
+        <p>&copy; 2024 ISI Kings Gaming. All rights reserved.</p>
+        <p>
+            Follow us on:
+            <a href="https://www.youtube.com/@isikingsgaming727" target="_blank">YouTube</a> |
+            <a href="https://www.tiktok.com/@mrhandsome4321?_t=8oawAp04btR&_r=1" target="_blank">TikTok</a> |
+            <a href="https://www.instagram.com" target="_blank">Instagram</a>
+        </p>
+    </footer>
+
+</body>
+
+</html>
